@@ -1,0 +1,6 @@
+{
+  "name": "Gold Shop POS & Management",
+  "description": "Comprehensive Myanmar Gold Shop POS, Weight Conversion, Daily Gold Price, Inventory, and Ledger System",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

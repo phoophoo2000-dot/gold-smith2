@@ -1,0 +1,424 @@
+@import "tailwindcss";
+
+:root {
+  font-family: 'Noto Sans Myanmar', 'Pyidaungsu', 'Padauk', 'Myanmar Text', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+}
+
+#root {
+  min-height: 100vh;
+  touch-action: pan-x pan-y;
+}
+
+body {
+  font-family: 'Noto Sans Myanmar', 'Pyidaungsu', 'Padauk', 'Myanmar Text', 'Plus Jakarta Sans', system-ui, sans-serif;
+  line-height: 1.85 !important;
+  -webkit-font-smoothing: antialiased;
+  overflow-y: scroll; /* Ensure document always has vertical scrollbar visible */
+  background-color: #e7e5e4;
+}
+
+/* Prevent mobile browser (iOS Safari / Chrome) from auto-zooming viewport when virtual keyboard opens */
+@media screen and (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+
+/* Myanmar font support across all inputs, buttons, and text containers */
+input, select, textarea, button, label, p, span, div, h1, h2, h3, h4, h5, h6, table, th, td {
+  font-family: 'Noto Sans Myanmar', 'Pyidaungsu', 'Padauk', 'Myanmar Text', 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Prevent Myanmar ascender & descender clipping (လုံးကြီးတင်၊ ဆံခတ်၊ အသတ်၊ ဓနု၊ သဝေထိုး၊ ဝဆွဲ၊ ချောင်းငင်၊ အောက်မြစ် စသည်) in inputs & selects */
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+select {
+  line-height: 1.75 !important;
+  padding-top: 0.65rem !important;
+  padding-bottom: 0.65rem !important;
+  min-height: 2.85rem !important;
+  box-sizing: border-box !important;
+}
+
+textarea {
+  line-height: 1.75 !important;
+  padding-top: 0.65rem !important;
+  padding-bottom: 0.65rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Buttons: Prevent upper marks (လုံးကြီးတင်၊ အသတ်၊ ေါ်၊ ို၊ ိ်) from being clipped */
+button {
+  line-height: 1.75 !important;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Labels: give ample vertical breathing room so both top diacritics and bottom marks are not clipped */
+label {
+  line-height: 1.8 !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  margin-bottom: 0.35rem !important;
+  display: inline-block;
+}
+
+/* Headings with Myanmar characters need ample line-height and top/bottom breathing space so top letters are never cut off */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.85 !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+/* Ensure common text utilities do not choke Myanmar vertical glyph height */
+.text-xs,
+.text-sm {
+  line-height: 1.8 !important;
+}
+
+/* Universal Vertical & Horizontal Scrollbar: Always visible, elegant amber thumb on dark track */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #f59e0b #1c1917 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #1c1917 !important;
+  border-radius: 9999px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f59e0b !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid #1c1917 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fbbf24 !important;
+}
+
+/* Custom sleek & slim horizontal scrollbar styling for tables and containers */
+.overflow-x-auto,
+.overflow-x-scroll,
+.horizontal-scroll-container,
+.custom-scrollbar-x {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin !important;
+  scrollbar-color: #d97706 #1c1917 !important;
+}
+
+/* Custom slim vertical scrollbar styling for modals, dropdowns, and form bodies */
+.custom-scrollbar-y,
+.modal-scroll-body {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin !important;
+  scrollbar-color: #f59e0b #1c1917 !important;
+}
+
+.custom-scrollbar-y::-webkit-scrollbar,
+.modal-scroll-body::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.custom-scrollbar-y::-webkit-scrollbar-track,
+.modal-scroll-body::-webkit-scrollbar-track {
+  background: #1c1917 !important;
+  border-radius: 9999px !important;
+}
+
+.custom-scrollbar-y::-webkit-scrollbar-thumb,
+.modal-scroll-body::-webkit-scrollbar-thumb {
+  background: #f59e0b !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid #1c1917 !important;
+}
+
+.custom-scrollbar-y::-webkit-scrollbar-thumb:hover,
+.modal-scroll-body::-webkit-scrollbar-thumb:hover {
+  background: #fbbf24 !important;
+}
+
+/* Dark Theme Vertical Scrollbar for modals and dark containers */
+.dark-scrollbar-y,
+.bg-stone-900 .custom-scrollbar-y,
+.bg-stone-950 .custom-scrollbar-y {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin !important;
+  scrollbar-color: #f59e0b #1c1917 !important;
+}
+
+.dark-scrollbar-y::-webkit-scrollbar,
+.bg-stone-900 .custom-scrollbar-y::-webkit-scrollbar,
+.bg-stone-950 .custom-scrollbar-y::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.dark-scrollbar-y::-webkit-scrollbar-track,
+.bg-stone-900 .custom-scrollbar-y::-webkit-scrollbar-track,
+.bg-stone-950 .custom-scrollbar-y::-webkit-scrollbar-track {
+  background: #1c1917 !important;
+  border-radius: 9999px !important;
+}
+
+.dark-scrollbar-y::-webkit-scrollbar-thumb,
+.bg-stone-900 .custom-scrollbar-y::-webkit-scrollbar-thumb,
+.bg-stone-950 .custom-scrollbar-y::-webkit-scrollbar-thumb {
+  background: #f59e0b !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid #1c1917 !important;
+}
+
+.dark-scrollbar-y::-webkit-scrollbar-thumb:hover,
+.bg-stone-900 .custom-scrollbar-y::-webkit-scrollbar-thumb:hover,
+.bg-stone-950 .custom-scrollbar-y::-webkit-scrollbar-thumb:hover {
+  background: #fbbf24 !important;
+}
+
+/* WebKit horizontal scrollbar - slim 5px height for clean tables and containers */
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-x-scroll::-webkit-scrollbar,
+.horizontal-scroll-container::-webkit-scrollbar,
+.custom-scrollbar-x::-webkit-scrollbar {
+  height: 5px !important;
+  background-color: transparent !important;
+  display: block !important;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track,
+.overflow-x-scroll::-webkit-scrollbar-track,
+.horizontal-scroll-container::-webkit-scrollbar-track,
+.custom-scrollbar-x::-webkit-scrollbar-track {
+  background: #f1f0ee !important;
+  border-radius: 9999px !important;
+  border: none !important;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.overflow-x-scroll::-webkit-scrollbar-thumb,
+.horizontal-scroll-container::-webkit-scrollbar-thumb,
+.custom-scrollbar-x::-webkit-scrollbar-thumb {
+  background: #d97706 !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  cursor: grab !important;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.overflow-x-scroll::-webkit-scrollbar-thumb:hover,
+.horizontal-scroll-container::-webkit-scrollbar-thumb:hover,
+.custom-scrollbar-x::-webkit-scrollbar-thumb:hover {
+  background: #b45309 !important;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:active,
+.overflow-x-scroll::-webkit-scrollbar-thumb:active,
+.horizontal-scroll-container::-webkit-scrollbar-thumb:active,
+.custom-scrollbar-x::-webkit-scrollbar-thumb:active {
+  background: #92400e !important;
+  cursor: grabbing !important;
+}
+
+/* Header & Dark Navigation Horizontal Scrollbar - Visible, clean, and grab-friendly (4px height, dimmed amber) */
+header .overflow-x-auto,
+header .custom-scrollbar-x,
+.dark-horizontal-scrollbar,
+.bg-stone-900 .overflow-x-auto,
+.bg-stone-950 .overflow-x-auto {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(245, 158, 11, 0.45) #292524 !important;
+}
+
+header .overflow-x-auto::-webkit-scrollbar,
+header .custom-scrollbar-x::-webkit-scrollbar,
+.dark-horizontal-scrollbar::-webkit-scrollbar,
+.bg-stone-900 .overflow-x-auto::-webkit-scrollbar,
+.bg-stone-950 .overflow-x-auto::-webkit-scrollbar {
+  height: 4px !important;
+  background-color: #1c1917 !important;
+  display: block !important;
+}
+
+header .overflow-x-auto::-webkit-scrollbar-track,
+header .custom-scrollbar-x::-webkit-scrollbar-track,
+.dark-horizontal-scrollbar::-webkit-scrollbar-track,
+.bg-stone-900 .overflow-x-auto::-webkit-scrollbar-track,
+.bg-stone-950 .overflow-x-auto::-webkit-scrollbar-track {
+  background: #292524 !important;
+  border-radius: 9999px !important;
+  border: none !important;
+}
+
+header .overflow-x-auto::-webkit-scrollbar-thumb,
+header .custom-scrollbar-x::-webkit-scrollbar-thumb,
+.dark-horizontal-scrollbar::-webkit-scrollbar-thumb,
+.bg-stone-900 .overflow-x-auto::-webkit-scrollbar-thumb,
+.bg-stone-950 .overflow-x-auto::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.45) !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  cursor: grab !important;
+  transition: background-color 0.2s ease !important;
+}
+
+header .overflow-x-auto::-webkit-scrollbar-thumb:hover,
+header .custom-scrollbar-x::-webkit-scrollbar-thumb:hover,
+.dark-horizontal-scrollbar::-webkit-scrollbar-thumb:hover,
+.bg-stone-900 .overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.bg-stone-950 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.75) !important;
+}
+
+header .overflow-x-auto::-webkit-scrollbar-thumb:active,
+header .custom-scrollbar-x::-webkit-scrollbar-thumb:active,
+.dark-horizontal-scrollbar::-webkit-scrollbar-thumb:active,
+.bg-stone-900 .overflow-x-auto::-webkit-scrollbar-thumb:active,
+.bg-stone-950 .overflow-x-auto::-webkit-scrollbar-thumb:active {
+  background: #f59e0b !important;
+  cursor: grabbing !important;
+}
+
+/* Mobile & Tablet Specific: Consistent slim horizontal scrollbars */
+@media (max-width: 1024px) {
+  .overflow-x-auto,
+  .overflow-x-scroll,
+  .horizontal-scroll-container,
+  .custom-scrollbar-x {
+    scrollbar-width: thin !important;
+    scrollbar-color: #d97706 #f5f5f4 !important;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar,
+  .overflow-x-scroll::-webkit-scrollbar,
+  .horizontal-scroll-container::-webkit-scrollbar,
+  .custom-scrollbar-x::-webkit-scrollbar {
+    height: 4px !important;
+    display: block !important;
+  }
+
+  header .overflow-x-auto::-webkit-scrollbar,
+  header .custom-scrollbar-x::-webkit-scrollbar,
+  .dark-horizontal-scrollbar::-webkit-scrollbar {
+    height: 3px !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 4mm;
+    size: auto;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide app navigation, headers, footers, buttons and overlays */
+  .no-print,
+  nav,
+  header,
+  aside,
+  footer,
+  button,
+  .offline-indicator {
+    display: none !important;
+  }
+
+  /* When printing from a modal or voucher sheet, hide the background main app so only the voucher prints */
+  body:has(#printable-invoice, #printable-buy-voucher, #printable-workshop-voucher, #printable-debt-receipt, #printable-shift-slip, .printable-sheet, .fixed.inset-0) main {
+    display: none !important;
+  }
+
+  /* Reset modal containers so they don't clip printable content */
+  .fixed.inset-0,
+  div[class*="fixed inset-0"] {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Unclip any scrollable and max-height containers */
+  div[class*="overflow-y-auto"],
+  div[class*="overflow-hidden"],
+  div[class*="max-h-"] {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  /* Make all printable voucher containers clean for paper printing */
+  #printable-invoice,
+  #printable-buy-voucher,
+  #printable-workshop-voucher,
+  #printable-debt-receipt,
+  #printable-shift-slip,
+  .printable-sheet {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 6px 4px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  #printable-invoice *,
+  #printable-buy-voucher *,
+  #printable-workshop-voucher *,
+  #printable-debt-receipt *,
+  #printable-shift-slip *,
+  .printable-sheet * {
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* Zebra Table Stripe Utility */
+.table-zebra tbody tr:nth-child(even),
+.zebra-striped tbody tr:nth-child(even) {
+  background-color: #f7f7f6;
+}
+
+.table-zebra tbody tr:nth-child(odd),
+.zebra-striped tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.table-zebra tbody tr:hover,
+.zebra-striped tbody tr:hover {
+  background-color: rgba(254, 243, 199, 0.6) !important;
+}

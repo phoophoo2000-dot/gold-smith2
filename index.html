@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Gold Shop POS & Management</title>
+    <meta name="description" content="Comprehensive Myanmar Gold Shop POS, Weight Conversion, Daily Gold Price, Inventory, and Ledger System" />
+    <meta name="theme-color" content="#1c1917" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ရွှေဆိုင် POS" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/pwa-512x512.png" />
+    <meta property="og:title" content="Gold Shop POS & Management" />
+    <meta property="og:description" content="Comprehensive Myanmar Gold Shop POS, Weight Conversion, Daily Gold Price, Inventory, and Ledger System" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700;800&family=Padauk:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  </head>
+  <body class="bg-stone-200 text-stone-900 antialiased font-sans m-0 p-0">
+    <div id="root">
+      <!-- High-performance Initial Loading Shell -->
+      <div style="min-height: 100vh; background-color: #1c1917; color: #f5f5f4; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Myanmar Text', sans-serif;">
+        <div style="width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, #f59e0b, #b45309); display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4); margin-bottom: 16px;">
+          👑
+        </div>
+        <h1 style="font-size: 19px; font-weight: 800; color: #fef3c7; margin: 0 0 6px 0; letter-spacing: -0.01em;">
+          ရွှေရတနာ ရွှေဆိုင် POS
+        </h1>
+        <p style="font-size: 12px; color: #a8a29e; margin: 0 0 20px 0;">
+          စနစ်ဖွင့်လှစ်နေပါသည် (Loading Gold POS Engine)...
+        </p>
+
+        <!-- Golden Pulse Loader -->
+        <div style="width: 40px; height: 40px; border: 3px solid rgba(245, 158, 11, 0.2); border-top-color: #f59e0b; border-radius: 50%; animation: gspSpin 0.8s linear infinite;"></div>
+
+        <!-- 3.5s Fallback Help Link if network stalls -->
+        <div id="loading-fallback" style="display: none; margin-top: 24px; text-align: center;">
+          <p style="font-size: 11px; color: #78716c; margin-bottom: 8px;">ကြာမြင့်နေပါက အောက်ပါခလုတ်ကို နှိပ်၍ ပြန်လည်စတင်ပါ</p>
+          <button onclick="location.reload();" style="padding: 8px 16px; background: #292524; color: #f5f5f4; border: 1px solid #44403c; border-radius: 8px; font-size: 11px; font-weight: 600; cursor: pointer;">
+            🔄 ပြန်လည်စတင်မည် (Reload Page)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @keyframes gspSpin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+
+    <script>
+      // Show recovery button if loading takes more than 3.5 seconds
+      setTimeout(function () {
+        var el = document.getElementById('loading-fallback');
+        if (el) el.style.display = 'block';
+      }, 3500);
+
+      // Prevent accidental virtual keyboard blur scroll offset
+      document.addEventListener('focusout', function (e) {
+        if (e.target && ['INPUT', 'TEXTAREA', 'SELECT'].indexOf(e.target.tagName) !== -1) {
+          window.scrollTo(0, window.scrollY);
+        }
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
